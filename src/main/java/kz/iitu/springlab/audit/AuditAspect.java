@@ -27,7 +27,7 @@ public class AuditAspect {
             return result;
         } catch (Throwable ex) {
             log.error("[AUDIT] {} failure: {}", audited.action(), ex.getMessage());
-            throw ex; // Обязательно пробрасываем дальше!
+            throw ex;
         }
     }
 }
