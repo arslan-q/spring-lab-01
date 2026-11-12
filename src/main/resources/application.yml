@@ -1,6 +1,15 @@
 spring:
   application:
     name: spring-lab
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/springlab}
+    username: ${SPRING_DATASOURCE_USERNAME:springlab}
+    password: ${SPRING_DATASOURCE_PASSWORD:springlab}
+  flyway:
+    enabled: true
+  sql:
+    init:
+      mode: never
 
 server:
   port: 8080

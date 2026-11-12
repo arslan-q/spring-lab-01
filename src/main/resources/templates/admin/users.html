@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Administration | SpringLab</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<header class="topbar"><a class="brand" th:href="@{/}">SpringLab</a><nav><a th:href="@{/books}">Catalogue</a><span sec:authentication="name">admin</span><form th:action="@{/logout}" method="post"><button class="link-button" type="submit">Log out</button></form></nav></header>
+<main class="page-wrap">
+    <p class="eyebrow">ADMINISTRATION</p>
+    <h1>Registered users</h1>
+    <p class="muted">Passwords are stored as BCrypt hashes in the database.</p>
+    <div class="table-wrap"><table>
+        <thead><tr><th>Username</th><th>Roles</th><th>Enabled</th></tr></thead>
+        <tbody><tr th:each="user : ${users}"><td th:text="${user.username}">user</td><td th:text="${user.roles}">[USER]</td><td th:text="${user.enabled}">true</td></tr></tbody>
+    </table></div>
+</main>
+</body>
+</html>

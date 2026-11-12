@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign in | SpringLab</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body class="auth-page">
+<main class="auth-card">
+    <a class="brand" th:href="@{/}">SpringLab <span>SECURITY</span></a>
+    <h1>Welcome back</h1>
+    <p class="muted">Sign in to open the book catalogue.</p>
+    <p class="notice error" th:if="${param.error}">Username or password is incorrect.</p>
+    <p class="notice success" th:if="${param.registered}">Account created. You can sign in now.</p>
+    <form th:action="@{/login}" method="post" class="form-stack">
+        <label>Username<input type="text" name="username" autocomplete="username" required autofocus></label>
+        <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+        <button type="submit">Sign in</button>
+    </form>
+    <p class="muted">New here? <a th:href="@{/register}">Create an account</a></p>
+</main>
+</body>
+</html>
